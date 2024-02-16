@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% load static %}  
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-4">{{ about_mes.name }}</h1>
+            <h2>Computer Science Engineer</h2>
+            <img src="{{ about_mes.image.url }}" alt="{{ about_mes.name }}" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
+            <p class="lead">{{ about_mes.description|linebreaksbr }}</p>
+            <hr>
+            <h2>Education</h2>
+            <div class="mb-3">
+               <p>Degree: Computer Science Engineer</p>
+               <p>University: Francisco Gavidia</p>
+               <p>Period: 2015-2022</p>
+            </div>
+            <hr>
+            <h2>Experience</h2>
+            {% for experience in experiences %}
+            <div class="mb-3">
+                <h5>{{ experience.company }} - {{ experience.job_title }} </h5>
+                <p >{{ experience.period }}</p>
+                <p>{{ experience.description }}</p>
+            </div>
+            {% endfor %}
+            <hr>
+            <h2>Skills</h2>
+            <div class="row">
+                {% for skill in skills %}
+                <div class="col-md-4 skill-item">
+                    <p><strong>{{ skill.name }}</strong></p>
+                </div>
+                {% endfor %}
+            </div>
+            <hr>
+            <h2>Certifications</h2>
+            {% for certification in certifications %}
+            <div class="mb-3">
+                <h5>{{ certification.name }}</h5>
+                <p>Issued by: {{ certification.issuedby }}</p>
+                <p>Company: {{ certification.company }}</p>
+                <p><a href={{certification.url}}>Link</a></p>
+            </div>
+            {% endfor %}
+            <hr>
+            <h2>Projects</h2>
+            {% for project in projects %}
+            <p><a href="{% url 'project_detail' project.id %}">{{ project.title }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

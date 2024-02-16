@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center">
+    <div>
+        <h1>Contact Information</h1>
+        <ul>
+            {% for contact in contacts %}
+            <li>Email: {{ contact.email }}</li>
+            <li>Phone: {{ contact.cellphone }}</li>
+            <li><a href="{{ contact.github }}" target="_blank">GitHub</a></li>
+            <li><a href="{{ contact.linkedin }}" target="_blank">LinkedIn</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

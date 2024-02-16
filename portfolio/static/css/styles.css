@@ -1,0 +1,37 @@
+
+body {
+    background-color: #1a1a1a; 
+    color: #d3d3d3; 
+    padding-top: 20px; 
+}
+
+.container {
+    background-color: #333; 
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+
+h1 {
+    color: #f0ad4e; 
+}
+
+p {
+    color: #ccc; 
+}
+
+a {
+    color: #00c3ff; /* Color de texto amarillo */
+}
+
+a:hover {
+    color: #f0ad4e; /* Cambio de color al pasar el ratón */
+}
+
+.nav-link:hover {
+    color: #f0ad4e;
+  }
+
+.nav-link {
+    color: #d3d3d3;
+}
